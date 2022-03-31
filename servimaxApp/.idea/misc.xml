@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.16" />
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout-w936dp/activity_login.xml" value="0.16" />
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
       </map>
     </option>
