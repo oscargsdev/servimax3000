@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroTrabajador"
+            android:exported="false" />
+        <activity
+            android:name=".RegistroUsuario"
+            android:exported="false" />
+        <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login" />
