@@ -20,4 +20,52 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="juan_perez">Juan Perez</string>
     <string name="calificacion_plantilla">4.5</string>
+
+
+
+    <string-array name="dummy_nombres">
+        <item>Oscar Garcia</item>
+        <item>Maria Magdalena</item>
+        <item>Gabo Velazquez</item>
+        <item>Paco Garcia</item>
+        <item>Elsa Salazar</item>
+        <item>Cloti</item>
+        <item>Rocky</item>
+        <item>Chucho</item>
+        <item>Miguel</item>
+        <item>Jeremy</item>
+        <item>Javier</item>
+    </string-array>
+
+    <string-array name="dummy_calificaciones">
+        <item>4.9</item>
+        <item>4.8</item>
+        <item>4.5</item>
+        <item>4.4</item>
+        <item>3.9</item>
+        <item>4.0</item>
+        <item>4.9</item>
+        <item>4.2</item>
+        <item>2.1</item>
+        <item>1.5</item>
+        <item>4.8</item>
+
+    </string-array>
+
+
+    <array name="dummy_fotos">
+        <item>@drawable/t1</item>
+        <item>@drawable/t2</item>
+        <item>@drawable/t3</item>
+        <item>@drawable/t5</item>
+        <item>@drawable/t1</item>
+        <item>@drawable/t2</item>
+        <item>@drawable/t3</item>
+        <item>@drawable/t5</item>
+        <item>@drawable/t1</item>
+        <item>@drawable/t2</item>
+        <item>@drawable/t3</item>
+
+    </array>
+
 </resources>
