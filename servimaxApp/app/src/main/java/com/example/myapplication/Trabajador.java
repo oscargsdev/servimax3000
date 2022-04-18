@@ -13,11 +13,11 @@ public class Trabajador {
     private double precioMaximo;
     private String noTelefono;
     private String email;
-    private String fotoResource;
+    private int fotoResource;
     private double calificacion;
 
     //Constructor para la vista en la lista de trabajadores;
-    Trabajador(String nombre, double calificacion, String fotoResource){
+    Trabajador(String nombre, double calificacion, int fotoResource){
         this.nombre = nombre;
         this.calificacion = calificacion;
         this.fotoResource = fotoResource;
@@ -32,7 +32,7 @@ public class Trabajador {
         return  calificacion;
     }
 
-    public String getFotoResource(){
+    public int getFotoResource(){
         return fotoResource;
     }
 }
