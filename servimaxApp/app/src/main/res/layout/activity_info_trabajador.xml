@@ -1,114 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".InfoTrabajador">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/fotoTrabajadorInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/t3" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/fotoTrabajadorInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fotoTrabajadorInfo"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".InfoTrabajador">
 
         <ImageView
-            android:id="@+id/estrellaInfo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+            android:id="@+id/fotoTrabajadorInfo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/t3" />
 
-        <TextView
-            android:id="@+id/calificacionInfo"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:text="@string/calificacion_plantilla"
-            android:textSize="40sp" />
-    </LinearLayout>
+            android:layout_marginStart="1dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/fotoTrabajadorInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fotoTrabajadorInfo"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:orientation="vertical"
-        android:paddingTop="64dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fotoTrabajadorInfo">
+            <ImageView
+                android:id="@+id/estrellaInfo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                app:srcCompat="@android:drawable/btn_star_big_on" />
 
-        <TextView
-            android:id="@+id/etiquetaNombre"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/calificacionInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:text="@string/calificacion_plantilla"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Nombre" />
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:orientation="vertical"
+            android:paddingTop="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fotoTrabajadorInfo">
 
-        <TextView
-            android:id="@+id/nombreInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/juan_perez"
-            android:textSize="30sp" />
+            <TextView
+                android:id="@+id/etiquetaNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            <TextView
+                android:id="@+id/nombreInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/juan_perez"
+                android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/telefonoEtiqueta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No. de telefono" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
 
-        <TextView
-            android:id="@+id/telefonoInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="3315879701"
-            android:textSize="30sp" />
+            <TextView
+                android:id="@+id/telefonoEtiqueta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. de telefono" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            <TextView
+                android:id="@+id/telefonoInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3315879701"
+                android:textSize="30sp" />
 
-        <TextView
-            android:id="@+id/precioEtiqueta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Precio del servicio" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
 
-        <TextView
-            android:id="@+id/precioInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="$1500/hr"
-            android:textSize="30sp" />
+            <TextView
+                android:id="@+id/precioEtiqueta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precio del servicio" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="32dp" />
+            <TextView
+                android:id="@+id/precioInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$1500/hr"
+                android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/solicitudBoton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Enviar solicitud de servicio" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+            <Button
+                android:id="@+id/solicitudBoton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar solicitud de servicio" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

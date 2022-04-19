@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "678911546995",
+    "project_id": "servimax3000-f2925",
+    "storage_bucket": "servimax3000-f2925.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678911546995:android:975f529c28a8512836bc06",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678911546995-bp2e12lmaem754vq3rmk8c1t831flc7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDZtesYxXTfoXKl6UqZOedEeFynitmD_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678911546995-bp2e12lmaem754vq3rmk8c1t831flc7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
