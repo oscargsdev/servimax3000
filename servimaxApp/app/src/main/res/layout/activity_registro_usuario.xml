@@ -9,59 +9,63 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/pad_registro_login">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/registro_usr_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registro para usuarios" />
+            android:fontFamily="sans-serif-thin"
+            android:text="@string/reg_usr_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_h" />
 
         <EditText
-            android:id="@+id/nombre_text"
+            android:id="@+id/nombre_usr_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
             android:inputType="textPersonName" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_h" />
+
         <EditText
-            android:id="@+id/apellido_text"
+            android:id="@+id/apellido_usr_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Apellidos"
             android:inputType="textPersonName" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_h" />
+
         <EditText
-            android:id="@+id/telefono_text"
+            android:id="@+id/telefono_usr_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="No. de teléfono"
             android:inputType="phone" />
 
-        <EditText
-            android:id="@+id/email_usuario_registro_text"
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/password_usuario_registro_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
+            android:layout_height="@dimen/space_h" />
 
         <Button
-            android:id="@+id/registro_usuario_boton"
+            android:id="@+id/completar_registro_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse" />
+            android:text="Completar registro"
+            android:onClick="completarRegUsr"/>
 
     </LinearLayout>
 

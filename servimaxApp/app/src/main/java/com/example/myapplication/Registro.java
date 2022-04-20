@@ -66,7 +66,8 @@ public class Registro extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user){
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, RegistroUsuario.class);
+        intent.putExtra("email", user.getEmail().toString());
         startActivity(intent);
     }
 

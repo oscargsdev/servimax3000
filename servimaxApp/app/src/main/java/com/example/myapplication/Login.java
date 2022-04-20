@@ -41,12 +41,12 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
         }
 
-        emailET = findViewById(R.id.email_registro_text);
+        emailET = findViewById(R.id.email_login_text);
         passET = findViewById(R.id.password_login_text);
     }
 
-    private void createAccount(String email, String password){
-        mAuth.createUserWithEmailAndPassword(email, password)
+    private void signInAccount(String email, String password){
+        mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -67,7 +67,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user){
-
+        Toast.makeText(Login.this, user.getEmail().toString(),
+                Toast.LENGTH_SHORT).show();
     }
 
     public void registroView(View view) {
@@ -75,10 +76,12 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void registro(View view) {
-//        String email = emailET.getText().toString();
-//        String pass = passET.getText().toString();
-//
-//        createAccount(email, pass);
-//    }
+
+
+    public void login(View view) {
+        String email = emailET.getText().toString();
+        String pass = passET.getText().toString();
+
+        signInAccount(email, pass);
+    }
 }

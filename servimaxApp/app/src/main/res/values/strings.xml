@@ -28,6 +28,7 @@
     <string name="con_cuenta_label">¿Ya tienes una cuenta?</string>
     <string name="login_title_label">Es bueno tenerte de vuelta</string>
     <string name="registro_title_label">Te damos la bienvenida</string>
+    <string name="reg_usr_label">Solo necesitamos unos cuantos datos más</string>
 
 
     <string-array name="dummy_nombres">
