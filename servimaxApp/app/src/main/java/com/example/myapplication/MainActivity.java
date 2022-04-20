@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
 //        }
 
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }
 

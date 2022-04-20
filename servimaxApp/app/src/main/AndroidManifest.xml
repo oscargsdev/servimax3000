@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
-        android:usesCleartextTraffic="true"
-        >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Registro"
+            android:exported="false" />
         <activity
             android:name=".InfoTrabajador"
             android:exported="false" />
@@ -28,11 +30,10 @@
             android:exported="false" />
         <activity
             android:name=".RegistroUsuario"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".ui.login.LoginActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_login" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ui.login.LoginActivity" -->
+        <!-- android:exported="false" -->
+        <!-- android:label="@string/title_activity_login" /> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

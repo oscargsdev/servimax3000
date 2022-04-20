@@ -17,7 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login extends AppCompatActivity {
+public class Registro extends AppCompatActivity {
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
@@ -25,14 +25,11 @@ public class Login extends AppCompatActivity {
     EditText emailET;
     EditText passET;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_registro);
 
-        // Initialize Firebase Auth
-//        FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -42,7 +39,7 @@ public class Login extends AppCompatActivity {
         }
 
         emailET = findViewById(R.id.email_registro_text);
-        passET = findViewById(R.id.password_login_text);
+        passET = findViewById(R.id.password_registro_text);
     }
 
     private void createAccount(String email, String password){
@@ -53,12 +50,14 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("D", "createUserWithEmail:success");
+                            Toast.makeText(Registro.this, "Usuario creado :)",
+                                    Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("D", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(Login.this, "Authentication failed.",
+                            Toast.makeText(Registro.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -67,18 +66,19 @@ public class Login extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user){
-
-    }
-
-    public void registroView(View view) {
-        Intent intent = new Intent(this, Registro.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 
-//    public void registro(View view) {
-//        String email = emailET.getText().toString();
-//        String pass = passET.getText().toString();
-//
-//        createAccount(email, pass);
-//    }
+    public void registro(View view) {
+        String email = emailET.getText().toString();
+        String pass = passET.getText().toString();
+
+        createAccount(email, pass);
+    }
+
+    public void loginView(View view) {
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+    }
 }
