@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,9 @@ public class Registro extends AppCompatActivity {
     EditText emailET;
     EditText passET;
 
+    RadioButton rbUsr;
+    RadioButton rbTrab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,9 @@ public class Registro extends AppCompatActivity {
 
         emailET = findViewById(R.id.email_registro_text);
         passET = findViewById(R.id.password_registro_text);
+
+        rbUsr = findViewById(R.id.rbUsuario);
+        rbTrab = findViewById(R.id.rbTrab);
     }
 
     private void createAccount(String email, String password){
@@ -66,9 +73,19 @@ public class Registro extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user){
-        Intent intent = new Intent(this, RegistroUsuario.class);
-        intent.putExtra("email", user.getEmail().toString());
-        startActivity(intent);
+
+        if (rbUsr.isChecked()) {
+            Intent intent = new Intent(this, RegistroUsuario.class);
+            intent.putExtra("email", user.getEmail().toString());
+            intent.putExtra("tipo", "0");
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(this, RegistroTrabajador.class);
+            intent.putExtra("email", user.getEmail().toString());
+            intent.putExtra("tipo", "1");
+            startActivity(intent);
+        }
     }
 
     public void registro(View view) {
@@ -81,5 +98,11 @@ public class Registro extends AppCompatActivity {
     public void loginView(View view) {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mAuth.signOut();
     }
 }

@@ -50,11 +50,13 @@ public class RegistroUsuario extends AppCompatActivity {
         String telefono = telefonoUsr.getText().toString();
 
         String email = getIntent().getStringExtra("email");
+        String tipoUsr = getIntent().getStringExtra("tipo");
 
         Map<String, Object> user = new HashMap<>();
         user.put("nombre", nombre);
         user.put("apellido", apellido);
         user.put("telefono", telefono);
+        user.put("tipoUsr", tipoUsr);
 
         db.collection("users").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -67,6 +69,8 @@ public class RegistroUsuario extends AppCompatActivity {
                 Toast.makeText(RegistroUsuario.this, "No se pudo completar el registro :(", Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
 
     }
