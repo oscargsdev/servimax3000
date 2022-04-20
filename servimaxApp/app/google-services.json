@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "678911546995",
-    "project_id": "servimax3000-f2925",
-    "storage_bucket": "servimax3000-f2925.appspot.com"
+    "project_number": "529999485352",
+    "project_id": "servimax3000-f76b1",
+    "storage_bucket": "servimax3000-f76b1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:678911546995:android:975f529c28a8512836bc06",
+        "mobilesdk_app_id": "1:529999485352:android:517395d0250011a123659d",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "678911546995-bp2e12lmaem754vq3rmk8c1t831flc7f.apps.googleusercontent.com",
+          "client_id": "529999485352-js56e3007uhum344fso9lna2e1v1lsbv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "d1a4a7d0346352900413aa6b690d2184d893a670"
+          }
+        },
+        {
+          "client_id": "529999485352-bvkr8ouf7k4s3adqobr69hqasp4fsvgq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDDZtesYxXTfoXKl6UqZOedEeFynitmD_w"
+          "current_key": "AIzaSyCIIrcF3DbODGIbMn3-vydSUBoGlGs89qU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "678911546995-bp2e12lmaem754vq3rmk8c1t831flc7f.apps.googleusercontent.com",
+              "client_id": "529999485352-bvkr8ouf7k4s3adqobr69hqasp4fsvgq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:text="email@email.com" />
 
         <EditText
             android:id="@+id/password_text"
@@ -31,7 +32,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="contraseña"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:text="1234qwer" />
 
         <Button
             android:id="@+id/ingresar_boton"
@@ -49,6 +51,7 @@
             android:id="@+id/registro_boton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="registro"
             android:text="Registrarse" />
 
     </LinearLayout>
