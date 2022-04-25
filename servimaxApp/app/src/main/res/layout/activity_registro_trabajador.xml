@@ -6,86 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".RegistroTrabajador">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registro para trabajadores" />
+            android:orientation="vertical"
+            android:padding="@dimen/pad_registro_login">
 
-        <EditText
-            android:id="@+id/nombre_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nombre"
-            android:inputType="textPersonName" />
+            <TextView
+                android:id="@+id/registro_trab_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
+                android:text="@string/reg_usr_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
-        <EditText
-            android:id="@+id/apellido_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Apellidos"
-            android:inputType="textPersonName" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_h" />
 
-        <EditText
-            android:id="@+id/oficio_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Oficio"
-            android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/nombre_trab_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/precio_min_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Precio mínimo"
-            android:inputType="number" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_h" />
 
-        <EditText
-            android:id="@+id/precio_max_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Precio máximo"
-            android:inputType="number" />
+            <EditText
+                android:id="@+id/apellido_trab_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Apellidos"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/telefono_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="No. de teléfono"
-            android:inputType="phone" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_h" />
 
-        <EditText
-            android:id="@+id/email_usuario_registro_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+            <EditText
+                android:id="@+id/oficio_trab_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Oficio"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/password_usuario_registro_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_h" />
 
-        <Button
-            android:id="@+id/registro_usuario_boton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrarse" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <EditText
+                    android:id="@+id/precio_min_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Precio mínimo"
+                    android:inputType="number" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/space_h"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/precio_max_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Precio máximo"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_h" />
+
+            <EditText
+                android:id="@+id/telefono_trab_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="No. de teléfono"
+                android:inputType="phone" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_h" />
+
+            <Button
+                android:id="@+id/registro_trab_boton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="completarRegTra"
+                android:text="@string/completar_registro" />
+
+        </LinearLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

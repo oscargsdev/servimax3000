@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">My Application</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="app_name">Servimax3000</string>
+    <string name="title_activity_login">Login</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -9,7 +9,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <string name="title_activity_registro_usuario">RegistroUsuario</string>
+    <string name="title_activity_registro_usuario">Registrate</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -18,4 +18,65 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="juan_perez">Juan Perez</string>
+    <string name="calificacion_plantilla">4.5</string>
+    <string name="email_label">email</string>
+    <string name="contrasena_label">contraseña</string>
+    <string name="ingresar_label">Ingresar</string>
+    <string name="sin_cuenta_label">¿Aún no tienes una cuenta?</string>
+    <string name="registrarse_label">Registrarse</string>
+    <string name="con_cuenta_label">¿Ya tienes una cuenta?</string>
+    <string name="login_title_label">Es bueno tenerte de vuelta</string>
+    <string name="registro_title_label">Te damos la bienvenida</string>
+    <string name="reg_usr_label">Solo necesitamos unos cuantos datos más</string>
+    <string name="rbUsuario">Solicito servicios</string>
+    <string name="rbTrabajador">Presto servicios</string>
+    <string name="completar_registro">Completar registro</string>
+
+
+    <string-array name="dummy_nombres">
+        <item>Oscar Garcia</item>
+        <item>Maria Magdalena</item>
+        <item>Gabo Velazquez</item>
+        <item>Paco Garcia</item>
+        <item>Elsa Salazar</item>
+        <item>Cloti</item>
+        <item>Rocky</item>
+        <item>Chucho</item>
+        <item>Miguel</item>
+        <item>Jeremy</item>
+        <item>Javier</item>
+    </string-array>
+
+    <string-array name="dummy_calificaciones">
+        <item>4.9</item>
+        <item>4.8</item>
+        <item>4.5</item>
+        <item>4.4</item>
+        <item>3.9</item>
+        <item>4.0</item>
+        <item>4.9</item>
+        <item>4.2</item>
+        <item>2.1</item>
+        <item>1.5</item>
+        <item>4.8</item>
+
+    </string-array>
+
+
+    <array name="dummy_fotos">
+        <item>@drawable/t1</item>
+        <item>@drawable/t2</item>
+        <item>@drawable/t3</item>
+        <item>@drawable/t5</item>
+        <item>@drawable/t1</item>
+        <item>@drawable/t2</item>
+        <item>@drawable/t3</item>
+        <item>@drawable/t5</item>
+        <item>@drawable/t1</item>
+        <item>@drawable/t2</item>
+        <item>@drawable/t3</item>
+
+    </array>
+
 </resources>
