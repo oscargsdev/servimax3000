@@ -32,6 +32,7 @@
     <string name="rbUsuario">Solicito servicios</string>
     <string name="rbTrabajador">Presto servicios</string>
     <string name="completar_registro">Completar registro</string>
+    <string name="Fontanero">Fontanería</string>
 
 
     <string-array name="dummy_nombres">
@@ -46,6 +47,15 @@
         <item>Miguel</item>
         <item>Jeremy</item>
         <item>Javier</item>
+    </string-array>
+
+    <string-array name="dummy_oficios">
+        <item>Electricista</item>
+        <item>Plomería</item>
+        <item>Jardinería</item>
+        <item>Electrodomésticos</item>
+        <item>Tapicería</item>
+        <item>Vidriero</item>
     </string-array>
 
     <string-array name="dummy_calificaciones">

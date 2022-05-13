@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_info_trabajador.xml" value="0.22" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_lista_oficios.xml" value="0.25" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_lista_trabajadores.xml" value="0.1634963768115942" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro.xml" value="0.25" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_trabajador.xml" value="0.25" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_usuario.xml" value="0.25" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_oficio.xml" value="0.25" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_ofico.xml" value="0.1634963768115942" />
+        <entry key="..\:/Proyecto_servimax3000/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_trabajador.xml" value="0.1634963768115942" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.16" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout-w936dp/activity_login.xml" value="0.16" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_info_trabajador.xml" value="0.22" />
@@ -17,7 +28,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
