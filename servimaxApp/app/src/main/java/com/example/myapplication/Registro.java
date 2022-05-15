@@ -29,10 +29,16 @@ public class Registro extends AppCompatActivity {
     RadioButton rbUsr;
     RadioButton rbTrab;
 
+    boolean datosValidos = true;
+
+    Validacion v;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+
+        v = new Validacion();
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -47,6 +53,8 @@ public class Registro extends AppCompatActivity {
 
         rbUsr = findViewById(R.id.rbUsuario);
         rbTrab = findViewById(R.id.rbTrab);
+
+        Toast.makeText(this, "Ingrese una contraseña valida", Toast.LENGTH_SHORT).show();
     }
 
     private void createAccount(String email, String password){
@@ -92,7 +100,20 @@ public class Registro extends AppCompatActivity {
         String email = emailET.getText().toString();
         String pass = passET.getText().toString();
 
-        createAccount(email, pass);
+        if (v.valCorreo(email) && v.valPass(pass)){
+            createAccount(email, pass);
+        }
+        else{
+            if(!v.valPass(pass)){
+                Toast.makeText(this, "Ingrese una contraseña valida", Toast.LENGTH_SHORT).show();
+            }
+
+            if(!v.valCorreo(email)){
+                Toast.makeText(this, "Ingrese un email valido", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
     }
 
     public void loginView(View view) {

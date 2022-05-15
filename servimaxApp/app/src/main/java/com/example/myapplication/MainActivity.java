@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
 //        }
 
+
+
+        // CAMBIAR PARA LA SS
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }

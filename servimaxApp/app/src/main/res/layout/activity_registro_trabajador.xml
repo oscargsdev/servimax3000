@@ -38,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nombre"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Oscar" />
 
             <Space
                 android:layout_width="match_parent"
@@ -50,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Apellidos"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="Garcia" />
 
             <Space
                 android:layout_width="match_parent"
@@ -62,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Oficio"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:text="font4nero" />
 
             <Space
                 android:layout_width="match_parent"
@@ -78,7 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio mínimo"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="200" />
 
                 <Space
                     android:layout_width="0dp"
@@ -90,7 +94,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio máximo"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="2000" />
             </LinearLayout>
 
             <Space
@@ -103,7 +108,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="No. de teléfono"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:text="0000000000000000000" />
 
             <Space
                 android:layout_width="match_parent"

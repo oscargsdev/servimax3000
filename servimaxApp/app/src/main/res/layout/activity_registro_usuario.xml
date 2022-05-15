@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="osc4r " />
 
         <Space
             android:layout_width="match_parent"
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Apellidos"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:text="garc1a" />
 
         <Space
             android:layout_width="match_parent"
@@ -54,7 +56,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="No. de teléfono"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:text="12345678901234" />
 
         <Space
             android:layout_width="match_parent"

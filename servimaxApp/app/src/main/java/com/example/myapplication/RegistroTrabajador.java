@@ -32,6 +32,8 @@ public class RegistroTrabajador extends AppCompatActivity {
     EditText minTra;
     EditText maxTra;
 
+    Validacion v;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +46,12 @@ public class RegistroTrabajador extends AppCompatActivity {
         minTra = findViewById(R.id.precio_min_text);
         maxTra = findViewById(R.id.precio_max_text);
 
+        v = new Validacion();
 
+        Toast.makeText(RegistroTrabajador.this, "Ingrese un oficio valido", Toast.LENGTH_SHORT).show();
     }
+
+
 
     public void completarRegTra(View view) {
         String nombre = nombreTra.getText().toString();
@@ -54,6 +60,13 @@ public class RegistroTrabajador extends AppCompatActivity {
         String oficio = oficioTra.getText().toString();
         String minimo = minTra.getText().toString();
         String maximo = maxTra.getText().toString();
+
+        boolean vNombre = v.valNombre(nombre);
+        boolean vApellido = v.valApellido(apellido);
+        boolean vTel = v.valTelefono(telefono);
+        boolean vOficio = v.valOficio(oficio);
+        boolean vMin = v.valMin(minimo);
+        boolean vMax = v.valMax(maximo);
 
         String email = getIntent().getStringExtra("email");
         String tipoUsr = getIntent().getStringExtra("tipo");
@@ -67,16 +80,44 @@ public class RegistroTrabajador extends AppCompatActivity {
         user.put("maximo", maximo);
         user.put("tipoUsr", tipoUsr);
 
-        db.collection("users").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(RegistroTrabajador.this, "Registro completo :)", Toast.LENGTH_SHORT).show();
+
+        if (vNombre && vApellido && vTel && vOficio && vMin && vMax){
+            db.collection("users").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(RegistroTrabajador.this, "Registro completo :)", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(RegistroTrabajador.this, "No se pudo completar el registro :(", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else{
+
+            if (!vNombre){
+                Toast.makeText(RegistroTrabajador.this, "Ingrese un nombre valido", Toast.LENGTH_SHORT).show();
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegistroTrabajador.this, "No se pudo completar el registro :(", Toast.LENGTH_SHORT).show();
+            if (!vApellido){
+                Toast.makeText(RegistroTrabajador.this, "Ingrese un apellido valido", Toast.LENGTH_SHORT).show();
             }
-        });
+            if(!vTel){
+                Toast.makeText(RegistroTrabajador.this, "Ingrese un no. de telefono valido", Toast.LENGTH_SHORT).show();
+            }
+            if (!vOficio){
+                Toast.makeText(RegistroTrabajador.this, "Ingrese un oficio valido", Toast.LENGTH_SHORT).show();
+            }
+            if(!vMin){
+                Toast.makeText(RegistroTrabajador.this, "Ingrese un monto minimo valido", Toast.LENGTH_SHORT).show();
+            }
+            if (!vMax){
+                Toast.makeText(RegistroTrabajador.this, "Ingrese un monto maximo valido", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+
+
     }
 }

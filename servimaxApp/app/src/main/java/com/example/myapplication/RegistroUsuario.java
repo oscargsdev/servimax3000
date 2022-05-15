@@ -32,6 +32,10 @@ public class RegistroUsuario extends AppCompatActivity {
     EditText apellidosUsr;
     EditText telefonoUsr;
 
+    boolean datosValidos = true;
+
+    Validacion v;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +45,21 @@ public class RegistroUsuario extends AppCompatActivity {
         apellidosUsr = findViewById(R.id.apellido_usr_text);
         telefonoUsr = findViewById(R.id.telefono_usr_text);
 
+        v = new Validacion();
 
+
+        // Pa despistar
+        Toast.makeText(RegistroUsuario.this, "Ingrese un no. de telefono valido", Toast.LENGTH_LONG).show();
     }
 
     public void completarRegUsr(View view) {
         String nombre = nombreUsr.getText().toString();
         String apellido = apellidosUsr.getText().toString();
         String telefono = telefonoUsr.getText().toString();
+
+        boolean vNombre = v.valNombre(nombre);
+        boolean vApellido = v.valApellido(apellido);
+        boolean vTel = v.valTelefono(telefono);
 
         String email = getIntent().getStringExtra("email");
         String tipoUsr = getIntent().getStringExtra("tipo");
@@ -58,17 +70,32 @@ public class RegistroUsuario extends AppCompatActivity {
         user.put("telefono", telefono);
         user.put("tipoUsr", tipoUsr);
 
-        db.collection("users").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(RegistroUsuario.this, "Registro completo :)", Toast.LENGTH_SHORT).show();
+        if (vNombre && vApellido && vTel){
+            db.collection("users").document(email).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    Toast.makeText(RegistroUsuario.this, "Registro completo :)", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(RegistroUsuario.this, "No se pudo completar el registro :(", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else{
+            if (!vNombre){
+                Toast.makeText(RegistroUsuario.this, "Ingrese un nombre valido", Toast.LENGTH_SHORT).show();
             }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(RegistroUsuario.this, "No se pudo completar el registro :(", Toast.LENGTH_SHORT).show();
+            if (!vApellido){
+                Toast.makeText(RegistroUsuario.this, "Ingrese un apellido valido", Toast.LENGTH_SHORT).show();
             }
-        });
+            if(!vTel){
+                Toast.makeText(RegistroUsuario.this, "Ingrese un no. de telefono valido", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+
 
 
 
