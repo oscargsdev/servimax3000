@@ -90,6 +90,9 @@ public class Login extends AppCompatActivity {
     private void updateUI(FirebaseUser user){
         Toast.makeText(Login.this, user.getEmail().toString(),
                 Toast.LENGTH_SHORT).show();
+
+        Intent i = new Intent(Login.this, ListaOficios.class);
+        startActivity(i);
     }
 
     public void registroView(View view) {
