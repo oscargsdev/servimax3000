@@ -28,11 +28,12 @@
             android:id="@+id/email_login_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/email_label"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:autofillHints="" />
+            android:text="oscare_gs@hotmail.com" />
 
         <Space
             android:layout_width="match_parent"
@@ -42,11 +43,12 @@
             android:id="@+id/password_login_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/contrasena_label"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:autofillHints="" />
+            android:text="1234qwer" />
 
         <Space
             android:layout_width="match_parent"

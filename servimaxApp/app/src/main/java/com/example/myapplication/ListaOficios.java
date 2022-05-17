@@ -1,19 +1,31 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ListaOficios extends AppCompatActivity {
 
+
     private ArrayList<String> listOficios;
     RecyclerView recycler;
+
+    private FirebaseAnalytics mFirebaseAnalytics;
+    private  FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +35,9 @@ public class ListaOficios extends AppCompatActivity {
         recycler = (RecyclerView) findViewById(R.id.recyclerViewTrabajador);
         recycler.setLayoutManager(new LinearLayoutManager(this));
         listOficios = new ArrayList<>();
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         initializeData();
 
@@ -37,4 +52,44 @@ public class ListaOficios extends AppCompatActivity {
         OficioAdapter adapter = new OficioAdapter(listOficios);
         recycler.setAdapter(adapter);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_principal, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.cerrarSesion) {
+            cerrarSesion();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+     public void cerrarSesion(){
+//        checkUser();
+        mAuth.signOut();
+//        checkUser();
+    }
+
+     void checkUser(){
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null){
+            Toast.makeText(getApplicationContext(), "No usuario", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getApplicationContext(), currentUser.getEmail().toString(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

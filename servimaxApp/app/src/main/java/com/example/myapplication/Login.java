@@ -108,4 +108,8 @@ public class Login extends AppCompatActivity {
 
         signInAccount(email, pass);
     }
+
+    public void cerrarSesion(){
+        mAuth.signOut();
+    }
 }
