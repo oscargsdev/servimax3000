@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // CAMBIAR PARA LA SS
-        Intent intent = new Intent(this, InfoTrabajador.class);
+        Intent intent = new Intent(this, ListaOficios.class);
         startActivity(intent);
     }
 

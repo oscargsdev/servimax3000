@@ -10,12 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <TextView
             android:id="@+id/btnOficio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
+
             android:text="@string/Fontanero"
-            android:textSize="18sp" />
+
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

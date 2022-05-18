@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,11 +11,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ListaTrabajadores extends AppCompatActivity {
 
@@ -24,6 +33,10 @@ public class ListaTrabajadores extends AppCompatActivity {
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private static FirebaseAuth mAuth;
+
+    private FirebaseFirestore db;
+    private CollectionReference trabajadoresRef;
+    private Query query;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +53,38 @@ public class ListaTrabajadores extends AppCompatActivity {
         mAdapter = new TrabajadorAdapter(this, mTrabajadorData);
         mRecyclerView.setAdapter(mAdapter);
 
-        initializeData();
+
+        db = FirebaseFirestore.getInstance();
+        trabajadoresRef = db.collection("users");
+        query = trabajadoresRef.whereEqualTo("oficio", getIntent().getStringExtra("oficio").toLowerCase(Locale.ROOT));
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+
+                    TypedArray fotoImageResources = getResources().obtainTypedArray(R.array.dummy_fotos);
+
+                    for (QueryDocumentSnapshot document: task.getResult()){
+//                        Trabajador trabajador = document.toObject(Trabajador.class);
+//                        mTrabajadorData.add(trabajador);
+
+                        document.get("nombre");
+
+                        mTrabajadorData.add(new Trabajador(document.get("nombre").toString(), 4.5,
+                                fotoImageResources.getResourceId(0, 0)));
+                    }
+                    mAdapter.notifyDataSetChanged();
+
+
+                }
+                else{
+                    Toast.makeText(ListaTrabajadores.this, "Fallo lol", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+//        initializeData();
     }
 
     private void initializeData(){
@@ -55,6 +99,21 @@ public class ListaTrabajadores extends AppCompatActivity {
                     fotoImageResources.getResourceId(i, 0)));
         }
     }
+
+
+    // VIEJO CON DATOS ESTATICOS
+//    private void initializeData(){
+//        String[] nombresList = getResources().getStringArray(R.array.dummy_nombres);
+//        String[] calificacionesList = getResources().getStringArray(R.array.dummy_calificaciones);
+//        TypedArray fotoImageResources = getResources().obtainTypedArray(R.array.dummy_fotos);
+//
+//        mTrabajadorData.clear();
+//
+//        for (int i = 0; i < nombresList.length; i++){
+//            mTrabajadorData.add(new Trabajador(nombresList[i], Double.parseDouble(calificacionesList[i]),
+//                    fotoImageResources.getResourceId(i, 0)));
+//        }
+//    }
 
 
 

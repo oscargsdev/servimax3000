@@ -49,7 +49,7 @@ public class ListaOficios extends AppCompatActivity {
         listOficios.clear();
 
         listOficios.addAll(Arrays.asList(nombresList));
-        OficioAdapter adapter = new OficioAdapter(listOficios);
+        OficioAdapter adapter = new OficioAdapter(this, listOficios);
         recycler.setAdapter(adapter);
     }
 

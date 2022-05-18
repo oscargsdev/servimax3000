@@ -177,11 +177,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp" />
 
-            <Button
-                android:id="@+id/solicitudBoton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enviar solicitud de servicio" />
+<!--            <Button-->
+<!--                android:id="@+id/solicitudBoton"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Enviar solicitud de servicio" />-->
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
