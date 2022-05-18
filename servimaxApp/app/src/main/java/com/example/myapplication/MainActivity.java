@@ -63,11 +63,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        llenadoDeBD();
+        //llenadoDeBD();
 
 
         // CAMBIAR PARA LA SS
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this, InfoTrabajador.class);
         startActivity(intent);
     }
 
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             int maxR = (int)(Math.random()*(1000-1500+1)+1500);
 
             bdLlena(nombres[i], apellidos[i], "3315879701",
-                            "carpintero", String.valueOf(minR), String.valueOf(maxR),
+                            "electricista", String.valueOf(minR), String.valueOf(maxR),
                             "1",  email, "1234qwer");
         }
 

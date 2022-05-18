@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/pad_registro_login">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,7 +44,10 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:text="@string/calificacion_plantilla"
-                android:textSize="40sp" />
+                android:textSize="40sp"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,14 +66,45 @@
                 android:id="@+id/etiquetaNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre" />
+                android:text="Nombre"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/nombreInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/juan_perez"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:id="@+id/etiquetaOficio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Oficio"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/oficioInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Carpintero"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
             <Space
                 android:layout_width="match_parent"
@@ -79,14 +114,40 @@
                 android:id="@+id/telefonoEtiqueta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No. de telefono" />
+                android:fontFamily="sans-serif-thin"
+                android:text="No. de telefono"
 
-            <TextView
-                android:id="@+id/telefonoInfo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:textSize="20sp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="3315879701"
-                android:textSize="30sp" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/telefonoInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="3315879701"
+
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:textSize="30sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="llamarTrabajador"
+                    android:text="Llamar" />
+            </LinearLayout>
 
             <Space
                 android:layout_width="match_parent"
@@ -96,14 +157,21 @@
                 android:id="@+id/precioEtiqueta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Precio del servicio" />
+                android:text="Precio del servicio"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/precioInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="$1500/hr"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:fontFamily="sans-serif-thin"
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
             <Space
                 android:layout_width="match_parent"
