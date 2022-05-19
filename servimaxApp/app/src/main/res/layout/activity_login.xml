@@ -16,8 +16,8 @@
             android:id="@+id/login_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_title_label"
             android:fontFamily="sans-serif-thin"
+            android:text="@string/login_title_label"
 
             android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
@@ -62,6 +62,13 @@
             android:backgroundTint="?attr/colorPrimaryVariant"
             android:onClick="login"
             android:text="@string/ingresar_label" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/restablecer_label"
+            android:textSize="15sp" />
 
         <Space
             android:layout_width="match_parent"

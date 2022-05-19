@@ -33,6 +33,10 @@
     <string name="rbTrabajador">Presto servicios</string>
     <string name="completar_registro">Completar registro</string>
     <string name="Fontanero">Fontanería</string>
+    <string name="restablecer_label">¿Olvidaste tu contraseña?</string>
+    <string name="restablecer_boton">Restablecer contraseña</string>
+    <string name="restablecer_title_label">Restablecer contraseña</string>
+    <string name="instruccionesRes_label">Introduzca el correo electrónico con el que se registró para enviarle las instrucciones para restablecer su contraseña</string>
 
 
     <string-array name="dummy_nombres">
@@ -142,7 +146,6 @@
         <item>Hughie</item>
         <item>Rosina</item>
         <item>Vienna</item>
-
 
 
     </array>
