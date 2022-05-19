@@ -77,6 +77,7 @@ public class TrabajadorAdapter extends RecyclerView.Adapter<TrabajadorAdapter.Vi
             intentInfo.putExtra("nombre", currentTrabajador.getNombre());
             intentInfo.putExtra("calificacion", currentTrabajador.getCalificacion());
             intentInfo.putExtra("fotoResource", currentTrabajador.getFotoResource());
+            intentInfo.putExtra("trabajador", currentTrabajador.getEmail());
             mContext.startActivity(intentInfo);
         }
     }

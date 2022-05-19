@@ -9,6 +9,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +32,8 @@ public class ListaTrabajadores extends AppCompatActivity {
     private ArrayList<Trabajador> mTrabajadorData;
     private TrabajadorAdapter mAdapter;
 
+    private TextView title;
+
     private FirebaseAnalytics mFirebaseAnalytics;
     private static FirebaseAuth mAuth;
 
@@ -43,10 +46,14 @@ public class ListaTrabajadores extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_trabajadores);
 
+        title = findViewById(R.id.oficioTitle);
+        title.setText(getIntent().getStringExtra("oficio"));
+
         mAuth = FirebaseAuth.getInstance();
 
         mRecyclerView = findViewById(R.id.recyclerViewTrabajador);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         mTrabajadorData = new ArrayList<>();
 
@@ -68,10 +75,10 @@ public class ListaTrabajadores extends AppCompatActivity {
 //                        Trabajador trabajador = document.toObject(Trabajador.class);
 //                        mTrabajadorData.add(trabajador);
 
-                        document.get("nombre");
+
 
                         mTrabajadorData.add(new Trabajador(document.get("nombre").toString(), 4.5,
-                                fotoImageResources.getResourceId(0, 0)));
+                                fotoImageResources.getResourceId(0, 0), document.getId()));
                     }
                     mAdapter.notifyDataSetChanged();
 

@@ -23,6 +23,13 @@ public class Trabajador {
         this.fotoResource = fotoResource;
     }
 
+    Trabajador(String nombre, double calificacion, int fotoResource, String email){
+        this.nombre = nombre;
+        this.calificacion = calificacion;
+        this.fotoResource = fotoResource;
+        this.email = email;
+    }
+
     // Getters
     public String getNombre(){
         return nombre;
@@ -34,5 +41,9 @@ public class Trabajador {
 
     public int getFotoResource(){
         return fotoResource;
+    }
+
+    public String getEmail(){
+        return email;
     }
 }
