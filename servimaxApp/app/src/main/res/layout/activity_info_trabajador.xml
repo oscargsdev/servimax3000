@@ -43,11 +43,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
-                android:text="@string/calificacion_plantilla"
-                android:textSize="40sp"
                 android:fontFamily="sans-serif-thin"
+                android:text="@string/calificacion_plantilla"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
 
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+                android:textSize="40sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,21 +66,21 @@
                 android:id="@+id/etiquetaNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre"
                 android:fontFamily="sans-serif-thin"
+                android:text="Nombre"
 
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/nombreInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/juan_perez"
-                android:textSize="30sp"
                 android:fontFamily="sans-serif-thin"
+                android:text="@string/juan_perez"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
 
-                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+                android:textSize="30sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -90,21 +90,21 @@
                 android:id="@+id/etiquetaOficio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Oficio"
                 android:fontFamily="sans-serif-thin"
+                android:text="Oficio"
 
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/oficioInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Carpintero"
-                android:textSize="30sp"
                 android:fontFamily="sans-serif-thin"
+                android:text="Carpintero"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
 
-                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+                android:textSize="30sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -157,21 +157,21 @@
                 android:id="@+id/precioEtiqueta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Precio del servicio"
                 android:fontFamily="sans-serif-thin"
+                android:text="Precio del servicio"
 
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/precioInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="$1500/hr"
-                android:textSize="30sp"
                 android:fontFamily="sans-serif-thin"
+                android:text="$1500/hr"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
 
-                android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+                android:textSize="30sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -181,55 +181,110 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Califica a este trabajador" />
+                android:fontFamily="sans-serif-thin"
+                android:text="Califica a este trabajador"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+
+                android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+
+
+
                 <Button
                     android:id="@+id/estrella1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="1" />
+                    android:text="1"
+                    android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/estrella2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="2" />
+                    android:text="2"
+                    android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/estrella3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="3" />
+                    android:text="3"
+                    android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/estrella4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="4" />
+                    android:text="4"
+                    android:textAlignment="center" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <Button
                     android:id="@+id/estrella5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="5" />
+                    android:text="5"
+                    android:textAlignment="center" />
+
+
+
             </LinearLayout>
 
             <!--            <Button-->
-<!--                android:id="@+id/solicitudBoton"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Enviar solicitud de servicio" />-->
+            <!--                android:id="@+id/solicitudBoton"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Enviar solicitud de servicio" />-->
+
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                tools:layout_editor_absoluteX="99dp"
+                tools:layout_editor_absoluteY="711dp" />
+
+            <Button
+                android:id="@+id/borrarCali"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="borrarCalificacion"
+                android:text="Borrar calificacion"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="165dp" />
         </LinearLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
