@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,10 +38,24 @@ public class InfoTrabajador extends AppCompatActivity {
 
 
 
+
+    EditText opinionET;
+    TextView nombreInfo;
+    TextView calificiacionInfo;
+    ImageView fotoInfo;
+    TextView oficioInfo;
+    TextView teleInfo;
+    TextView precioInfo;
+    Button opinionBtn;
+
+
+
+
     // Vars firebase
     int califica = 0;
     String ruta;
     String usuario;
+    String opn;
 
     Button borrarCali;
 
@@ -49,12 +64,17 @@ public class InfoTrabajador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_trabajador);
 
-        TextView nombreInfo = findViewById(R.id.nombreInfo);
-        TextView calificiacionInfo = findViewById(R.id.calificacionInfo);
-        ImageView fotoInfo = findViewById(R.id.fotoTrabajadorInfo);
-        TextView oficioInfo = findViewById(R.id.oficioInfo);
-        TextView teleInfo = findViewById(R.id.telefonoInfo);
-        TextView precioInfo = findViewById(R.id.precioInfo);
+        nombreInfo = findViewById(R.id.nombreInfo);
+        calificiacionInfo = findViewById(R.id.calificacionInfo);
+        fotoInfo = findViewById(R.id.fotoTrabajadorInfo);
+        oficioInfo = findViewById(R.id.oficioInfo);
+        teleInfo = findViewById(R.id.telefonoInfo);
+        precioInfo = findViewById(R.id.precioInfo);
+        opinionET = findViewById(R.id.etOpinion);
+        opinionBtn = findViewById(R.id.btnOpinion);
+
+        opinionET.setVisibility(View.INVISIBLE);
+        opinionBtn.setVisibility(View.INVISIBLE);
 
 
         nombreC = getIntent().getStringExtra("nombre") + " " + getIntent().getStringExtra("apellido");
@@ -80,6 +100,10 @@ public class InfoTrabajador extends AppCompatActivity {
                 ("fotoResource", 0)).into(fotoInfo);
 
 
+        // Pa firebase
+        trabID = getIntent().getStringExtra("trabajador");
+
+
 
 
         /// BOTONES
@@ -97,8 +121,7 @@ public class InfoTrabajador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 califica = 1;
-                calificarTrabajador();
-                borrarCali.setVisibility(View.VISIBLE);
+                btnEstrellaAccion();
             }
         });
 
@@ -106,8 +129,7 @@ public class InfoTrabajador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 califica = 2;
-                calificarTrabajador();
-                borrarCali.setVisibility(View.VISIBLE);
+               btnEstrellaAccion();
             }
         });
 
@@ -115,8 +137,7 @@ public class InfoTrabajador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 califica = 3;
-                calificarTrabajador();
-                borrarCali.setVisibility(View.VISIBLE);
+                btnEstrellaAccion();
             }
         });
 
@@ -124,8 +145,7 @@ public class InfoTrabajador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 califica = 4;
-                calificarTrabajador();
-                borrarCali.setVisibility(View.VISIBLE);
+                btnEstrellaAccion();
             }
         });
 
@@ -133,12 +153,11 @@ public class InfoTrabajador extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 califica = 5;
-                calificarTrabajador();
-                borrarCali.setVisibility(View.VISIBLE);
+                btnEstrellaAccion();
             }
         });
 
-        trabID = getIntent().getStringExtra("trabajador");
+
 
 
 
@@ -147,6 +166,24 @@ public class InfoTrabajador extends AppCompatActivity {
         ///// PRUEBAAAa
 
 //        calificarTrabajador();
+    }
+
+
+    void btnEstrellaAccion(){
+        calificarTrabajador();
+        borrarCali.setVisibility(View.VISIBLE);
+        opinionET.setVisibility(View.VISIBLE);
+        opinionBtn.setVisibility(View.VISIBLE);
+
+        if (califica == 1){
+            Toast.makeText(this, "Ha calificado a este trabajador con "
+                    + califica + " estrella", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "Ha calificado a este trabajador con "
+                    + califica + " estrellas", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -177,8 +214,39 @@ public class InfoTrabajador extends AppCompatActivity {
                 });
 
         borrarCali.setVisibility(View.INVISIBLE);
+        opinionET.setVisibility(View.INVISIBLE);
+        opinionBtn.setVisibility(View.INVISIBLE);
     }
 
+    public void enviaOpinion(View v){
+        usuario = usr.getCurrentUser().getEmail().toString();
+
+        ruta = "users/" + trabID + "/calificaciones";
+
+        String opn = opinionET.getText().toString();
+
+
+        Map<String, Object> calificacion = new HashMap<>();
+        calificacion.put("usuario", usuario);
+        calificacion.put("calificacion", califica);
+        calificacion.put("opinion", opn);
+
+
+
+        db.collection(ruta).document(usuario).set(calificacion).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(InfoTrabajador.this, "Calififcacion enviada", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(InfoTrabajador.this, "No se pudo enviar la calificacion", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+    }
 
 
     void calificarTrabajador(){

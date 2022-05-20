@@ -274,6 +274,28 @@
                 tools:layout_editor_absoluteX="99dp"
                 tools:layout_editor_absoluteY="711dp" />
 
+            <EditText
+                android:id="@+id/etOpinion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Escribe una opinion"
+                android:inputType="textMultiLine" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                tools:layout_editor_absoluteX="99dp"
+                tools:layout_editor_absoluteY="711dp" />
+
+            <Button
+                android:id="@+id/btnOpinion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="enviaOpinion"
+                android:text="Enviar opinion" />
+
             <Button
                 android:id="@+id/borrarCali"
                 android:layout_width="match_parent"

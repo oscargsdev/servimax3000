@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // CAMBIAR PARA LA SS
-        Intent intent = new Intent(this, ListaOficios.class);
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     }
 
