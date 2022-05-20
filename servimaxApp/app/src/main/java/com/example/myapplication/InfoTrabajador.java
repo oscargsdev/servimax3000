@@ -26,8 +26,19 @@ public class InfoTrabajador extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth usr = FirebaseAuth.getInstance();
 
+    // Info trabjador
+    String trabID; // email
+    String nombreC;
+    String min;
+    String max;
+    String noTelefono;
+    String oficio;
+
+
+
+
+    // Vars firebase
     int califica = 0;
-    String trabID;
     String ruta;
     String usuario;
 
@@ -41,6 +52,37 @@ public class InfoTrabajador extends AppCompatActivity {
         TextView nombreInfo = findViewById(R.id.nombreInfo);
         TextView calificiacionInfo = findViewById(R.id.calificacionInfo);
         ImageView fotoInfo = findViewById(R.id.fotoTrabajadorInfo);
+        TextView oficioInfo = findViewById(R.id.oficioInfo);
+        TextView teleInfo = findViewById(R.id.telefonoInfo);
+        TextView precioInfo = findViewById(R.id.precioInfo);
+
+
+        nombreC = getIntent().getStringExtra("nombre") + " " + getIntent().getStringExtra("apellido");
+        oficio = getIntent().getStringExtra("oficio");
+        oficio = oficio.substring(0, 1).toUpperCase() + oficio.substring(1);
+        min = getIntent().getStringExtra("min");
+        max = getIntent().getStringExtra("max");
+        noTelefono = getIntent().getStringExtra("noTel");
+
+
+
+        // Set TextViews
+        nombreInfo.setText(nombreC);
+        oficioInfo.setText(oficio);
+        teleInfo.setText(noTelefono);
+        precioInfo.setText("$" + min + " - $" + max + " /hr");
+        oficioInfo.setText(oficio);
+
+
+
+        calificiacionInfo.setText(String.valueOf(getIntent().getDoubleExtra("calificacion", 0)));
+        Glide.with(this).load(getIntent().getIntExtra
+                ("fotoResource", 0)).into(fotoInfo);
+
+
+
+
+        /// BOTONES
 
         Button b1 = findViewById(R.id.estrella1);
         Button b2 = findViewById(R.id.estrella2);
@@ -98,15 +140,7 @@ public class InfoTrabajador extends AppCompatActivity {
 
         trabID = getIntent().getStringExtra("trabajador");
 
-        // Texview Set
-        nombreInfo.setText(getIntent().getStringExtra("nombre"));
 
-
-
-
-        calificiacionInfo.setText(String.valueOf(getIntent().getDoubleExtra("calificacion", 0)));
-        Glide.with(this).load(getIntent().getIntExtra
-                ("fotoResource", 0)).into(fotoInfo);
 
 
 
@@ -117,7 +151,7 @@ public class InfoTrabajador extends AppCompatActivity {
 
 
     public void llamarTrabajador(View view){
-        String posted_by = "3315879701";
+        String posted_by = noTelefono;
 
         String uri = "tel:" + posted_by.trim() ;
         Intent intent = new Intent(Intent.ACTION_DIAL);

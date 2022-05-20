@@ -62,6 +62,8 @@ public class ListaTrabajadores extends AppCompatActivity {
 
 
         db = FirebaseFirestore.getInstance();
+
+
         trabajadoresRef = db.collection("users");
         query = trabajadoresRef.whereEqualTo("oficio", getIntent().getStringExtra("oficio").toLowerCase(Locale.ROOT));
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -77,8 +79,9 @@ public class ListaTrabajadores extends AppCompatActivity {
 
 
 
-                        mTrabajadorData.add(new Trabajador(document.get("nombre").toString(), 4.5,
-                                fotoImageResources.getResourceId(0, 0), document.getId()));
+                        mTrabajadorData.add(new Trabajador(document.get("nombre").toString(), document.get("apellido").toString(),
+                                document.getString("telefono"),  document.getString("oficio"), document.getString("minimo"),
+                                document.getString("maximo") , fotoImageResources.getResourceId(0, 0), document.getId()));
                     }
                     mAdapter.notifyDataSetChanged();
 
@@ -94,18 +97,18 @@ public class ListaTrabajadores extends AppCompatActivity {
 //        initializeData();
     }
 
-    private void initializeData(){
-        String[] nombresList = getResources().getStringArray(R.array.dummy_nombres);
-        String[] calificacionesList = getResources().getStringArray(R.array.dummy_calificaciones);
-        TypedArray fotoImageResources = getResources().obtainTypedArray(R.array.dummy_fotos);
-
-        mTrabajadorData.clear();
-
-        for (int i = 0; i < nombresList.length; i++){
-            mTrabajadorData.add(new Trabajador(nombresList[i], Double.parseDouble(calificacionesList[i]),
-                    fotoImageResources.getResourceId(i, 0)));
-        }
-    }
+//    private void initializeData(){
+//        String[] nombresList = getResources().getStringArray(R.array.dummy_nombres);
+//        String[] calificacionesList = getResources().getStringArray(R.array.dummy_calificaciones);
+//        TypedArray fotoImageResources = getResources().obtainTypedArray(R.array.dummy_fotos);
+//
+//        mTrabajadorData.clear();
+//
+//        for (int i = 0; i < nombresList.length; i++){
+//            mTrabajadorData.add(new Trabajador(nombresList[i], Double.parseDouble(calificacionesList[i]),
+//                    fotoImageResources.getResourceId(i, 0)));
+//        }
+//    }
 
 
     // VIEJO CON DATOS ESTATICOS
