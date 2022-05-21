@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:ignore="NamespaceTypo">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+
+
+       <TextView
+           android:id="@+id/calificacionOpinion"
+           android:layout_width="85dp"
+           android:layout_height="wrap_content"
+           android:fontFamily="sans-serif-thin"
+           android:text="4"
+           android:textAlignment="center"
+           android:textSize="50dp" />
+
+
+
+       <TextView
+           android:id="@+id/nombreUsrOpinion"
+           style="@android:style/Widget.DeviceDefault.Light.TextView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:fontFamily="sans-serif-thin"
+           android:text="Oscar Garcia"
+           android:textSize="20dp"
+           android:textStyle="italic"
+           android:layout_toRightOf="@+id/calificacionOpinion"/>
+
+       <TextView
+           android:id="@+id/comentarioOpinion"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/nombreUsrOpinion"
+           android:layout_toRightOf="@+id/calificacionOpinion"
+           android:fontFamily="sans-serif-thin"
+           android:paddingTop="5dp"
+           android:text="Este trabajador hizo un muy buen trabajo, llego algo tarde pero en general lo recomendaria"
+           android:textSize="25sp" />
+   </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

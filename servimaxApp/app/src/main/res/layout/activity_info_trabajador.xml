@@ -304,6 +304,12 @@
                 android:text="Borrar calificacion"
                 tools:layout_editor_absoluteX="83dp"
                 tools:layout_editor_absoluteY="165dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerOpiniones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
 

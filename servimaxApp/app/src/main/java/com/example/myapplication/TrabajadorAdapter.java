@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class TrabajadorAdapter extends RecyclerView.Adapter<TrabajadorAdapter.ViewHolder> {
 
-    private ArrayList<Trabajador> mTrabajadorData;
-    private Context mContext;
+    private  ArrayList<Trabajador> mTrabajadorData;
+    private  Context mContext;
 
     // Constructor que pasa datos y contexto
     TrabajadorAdapter(Context context, ArrayList<Trabajador> trabajadorData){
@@ -46,7 +46,7 @@ public class TrabajadorAdapter extends RecyclerView.Adapter<TrabajadorAdapter.Vi
         return mTrabajadorData.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public  class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         // Views de la tarjeta
         private ImageView mFotoTrabajador;

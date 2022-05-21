@@ -27,7 +27,7 @@ public class OficioAdapter extends RecyclerView.Adapter<OficioAdapter.ViewHolder
 
     @NonNull
     @Override
-    public OficioAdapter.ViewHolderOficios onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderOficios onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext)
                 .inflate(R.layout.tarjeta_oficio,parent,false);
         return new ViewHolderOficios(view);

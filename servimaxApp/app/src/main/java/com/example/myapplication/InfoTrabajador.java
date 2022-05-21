@@ -2,6 +2,8 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,11 +16,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +35,16 @@ public class InfoTrabajador extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth usr = FirebaseAuth.getInstance();
+
+
+
+    private RecyclerView mRecyclerView;
+    private ArrayList<Opinion> mOpinionData;
+    private OpinionAdapter mAdapter;
+
+
+    private CollectionReference opinionesRef;
+    private Query query;
 
     // Info trabjador
     String trabID; // email
@@ -73,8 +92,15 @@ public class InfoTrabajador extends AppCompatActivity {
         opinionET = findViewById(R.id.etOpinion);
         opinionBtn = findViewById(R.id.btnOpinion);
 
-        opinionET.setVisibility(View.INVISIBLE);
-        opinionBtn.setVisibility(View.INVISIBLE);
+        mRecyclerView = findViewById(R.id.recyclerOpiniones);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mOpinionData = new ArrayList<>();
+
+
+
+        opinionET.setVisibility(View.GONE);
+        opinionBtn.setVisibility(View.GONE);
 
 
         nombreC = getIntent().getStringExtra("nombre") + " " + getIntent().getStringExtra("apellido");
@@ -100,8 +126,7 @@ public class InfoTrabajador extends AppCompatActivity {
                 ("fotoResource", 0)).into(fotoInfo);
 
 
-        // Pa firebase
-        trabID = getIntent().getStringExtra("trabajador");
+
 
 
 
@@ -160,14 +185,58 @@ public class InfoTrabajador extends AppCompatActivity {
 
 
 
+        // FIRESTORE
+        // Pa firebase
+        trabID = getIntent().getStringExtra("trabajador");
 
 
+        opinionesRef = db.collection("users/" + trabID + "/calificaciones");
+        query = opinionesRef.orderBy("opinion");
+
+        queryOpiniones();
+
+
+        mAdapter = new OpinionAdapter(this, mOpinionData);
+        mRecyclerView.setAdapter(mAdapter);
 
         ///// PRUEBAAAa
 
 //        calificarTrabajador();
     }
 
+
+    void queryOpiniones(){
+        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+
+
+
+                    for (QueryDocumentSnapshot document: task.getResult()){
+
+                        Opinion o = new Opinion(document.getString("usuario"),
+                                "5",
+                                document.getString("opinion"));
+                        mOpinionData.add(o);
+
+                        t(o.getUsuario() + " " + o.getCalificacion() + " " + o.getComentario());
+
+
+                    }
+
+                    mAdapter.notifyDataSetChanged();
+
+
+                }
+            }
+        });
+    }
+
+
+    void t(String s){
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
 
     void btnEstrellaAccion(){
         calificarTrabajador();
@@ -183,6 +252,8 @@ public class InfoTrabajador extends AppCompatActivity {
             Toast.makeText(this, "Ha calificado a este trabajador con "
                     + califica + " estrellas", Toast.LENGTH_SHORT).show();
         }
+
+        queryOpiniones();
 
     }
 
@@ -213,9 +284,11 @@ public class InfoTrabajador extends AppCompatActivity {
                     }
                 });
 
-        borrarCali.setVisibility(View.INVISIBLE);
-        opinionET.setVisibility(View.INVISIBLE);
-        opinionBtn.setVisibility(View.INVISIBLE);
+        borrarCali.setVisibility(View.GONE);
+        opinionET.setVisibility(View.GONE);
+        opinionBtn.setVisibility(View.GONE);
+
+        queryOpiniones();
     }
 
     public void enviaOpinion(View v){
@@ -244,6 +317,9 @@ public class InfoTrabajador extends AppCompatActivity {
                 Toast.makeText(InfoTrabajador.this, "No se pudo enviar la calificacion", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        queryOpiniones();
 
 
     }
