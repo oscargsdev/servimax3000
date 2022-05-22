@@ -181,8 +181,9 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-thin"
+
                 android:text="Califica a este trabajador"
+                android:fontFamily="sans-serif-thin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
 
                 android:textSize="30sp" />
@@ -267,8 +268,8 @@
             <!--                android:text="Enviar solicitud de servicio" />-->
 
 
-
             <Space
+                android:id="@+id/space1"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 tools:layout_editor_absoluteX="99dp"
@@ -284,6 +285,7 @@
                 android:inputType="textMultiLine" />
 
             <Space
+                android:id="@+id/space2"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 tools:layout_editor_absoluteX="99dp"
@@ -305,10 +307,23 @@
                 tools:layout_editor_absoluteX="83dp"
                 tools:layout_editor_absoluteY="165dp" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opiniones"
+                android:fontFamily="sans-serif-thin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerOpiniones"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
 
         </LinearLayout>
 

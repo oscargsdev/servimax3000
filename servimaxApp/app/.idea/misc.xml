@@ -3,18 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_home_trabajador.xml" value="0.5" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_info_trabajador.xml" value="0.25" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_lista_oficios.xml" value="0.25" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_lista_trabajadores.xml" value="0.22447916666666667" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_main.xml" value="0.16077898550724637" />
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_perfil.xml" value="0.5" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro.xml" value="0.25" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_trabajador.xml" value="0.22447916666666667" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_usuario.xml" value="0.25" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_restablecer_contra.xml" value="0.21557971014492755" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_comentario.xml" value="0.33" />
-        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_oficio.xml" value="0.16" />
-        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_trabajador.xml" value="0.67" />
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_oficio.xml" value="0.5686528497409327" />
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_trabajador.xml" value="0.6427525622254758" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/menu/menu_principal.xml" value="0.2234375" />
       </map>
     </option>

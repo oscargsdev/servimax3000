@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,6 +67,8 @@ public class InfoTrabajador extends AppCompatActivity {
     TextView teleInfo;
     TextView precioInfo;
     Button opinionBtn;
+    Space space1;
+    Space space2;
 
 
 
@@ -91,6 +94,10 @@ public class InfoTrabajador extends AppCompatActivity {
         precioInfo = findViewById(R.id.precioInfo);
         opinionET = findViewById(R.id.etOpinion);
         opinionBtn = findViewById(R.id.btnOpinion);
+        space1 = findViewById(R.id.space1);
+        space2 = findViewById(R.id.space2);
+
+
 
         mRecyclerView = findViewById(R.id.recyclerOpiniones);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -99,8 +106,7 @@ public class InfoTrabajador extends AppCompatActivity {
 
 
 
-        opinionET.setVisibility(View.GONE);
-        opinionBtn.setVisibility(View.GONE);
+
 
 
         nombreC = getIntent().getStringExtra("nombre") + " " + getIntent().getStringExtra("apellido");
@@ -140,7 +146,9 @@ public class InfoTrabajador extends AppCompatActivity {
         Button b5 = findViewById(R.id.estrella5);
 
         borrarCali = findViewById(R.id.borrarCali);
-        borrarCali.setVisibility(View.INVISIBLE);
+
+
+
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +207,9 @@ public class InfoTrabajador extends AppCompatActivity {
         mAdapter = new OpinionAdapter(this, mOpinionData);
         mRecyclerView.setAdapter(mAdapter);
 
+
+        ocultarElementosOpinion();
+
         ///// PRUEBAAAa
 
 //        calificarTrabajador();
@@ -216,7 +227,7 @@ public class InfoTrabajador extends AppCompatActivity {
                     for (QueryDocumentSnapshot document: task.getResult()){
 
                         Opinion o = new Opinion(document.getString("usuario"),
-                                "5",
+                                String.valueOf(document.getDouble("calificacion")).substring(0),
                                 document.getString("opinion"));
                         mOpinionData.add(o);
 
@@ -240,9 +251,7 @@ public class InfoTrabajador extends AppCompatActivity {
 
     void btnEstrellaAccion(){
         calificarTrabajador();
-        borrarCali.setVisibility(View.VISIBLE);
-        opinionET.setVisibility(View.VISIBLE);
-        opinionBtn.setVisibility(View.VISIBLE);
+        mostrarElementosOpinion();
 
         if (califica == 1){
             Toast.makeText(this, "Ha calificado a este trabajador con "
@@ -284,10 +293,7 @@ public class InfoTrabajador extends AppCompatActivity {
                     }
                 });
 
-        borrarCali.setVisibility(View.GONE);
-        opinionET.setVisibility(View.GONE);
-        opinionBtn.setVisibility(View.GONE);
-
+        ocultarElementosOpinion();
         queryOpiniones();
     }
 
@@ -351,6 +357,27 @@ public class InfoTrabajador extends AppCompatActivity {
                 Toast.makeText(InfoTrabajador.this, "No se pudo enviar la calificacion", Toast.LENGTH_SHORT).show();
             }
         });
+
+    }
+
+
+    void ocultarElementosOpinion(){
+
+        opinionET.setVisibility(View.GONE);
+        opinionBtn.setVisibility(View.GONE);
+        borrarCali.setVisibility(View.GONE);
+        space1.setVisibility(View.GONE);
+        space2.setVisibility(View.GONE);
+
+    }
+
+    void mostrarElementosOpinion(){
+
+        opinionET.setVisibility(View.VISIBLE);
+        opinionBtn.setVisibility(View.VISIBLE);
+        borrarCali.setVisibility(View.VISIBLE);
+        space1.setVisibility(View.VISIBLE);
+        space2.setVisibility(View.VISIBLE);
 
     }
 }

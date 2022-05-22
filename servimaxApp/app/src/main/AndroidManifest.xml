@@ -10,6 +10,12 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Perfil"
+            android:exported="false" />
+        <activity
+            android:name=".HomeTrabajador"
+            android:exported="false" />
+        <activity
             android:name=".RestablecerContra"
             android:exported="false" />
         <activity
