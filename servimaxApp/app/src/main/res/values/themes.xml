@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@android:color/holo_red_light</item>
         <item name="colorPrimaryVariant">@android:color/holo_red_dark</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@android:color/holo_orange_light</item>
         <item name="colorSecondaryVariant">@android:color/holo_orange_dark</item>

@@ -16,14 +16,25 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 public class Login extends AppCompatActivity {
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private CollectionReference usrRef;
+    private Query query;
 
     EditText emailET;
     EditText passET;
+
+
 
     Validacion v;
 
@@ -91,8 +102,45 @@ public class Login extends AppCompatActivity {
         Toast.makeText(Login.this, user.getEmail().toString(),
                 Toast.LENGTH_SHORT).show();
 
-        Intent i = new Intent(Login.this, ListaOficios.class);
-        startActivity(i);
+
+
+
+        DocumentReference docRef = db.collection("users").document(user.getEmail().toString());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d("d", "DocumentSnapshot data: " + document.getData());
+                        String usr = document.getString("tipoUsr");
+                        Intent i;
+
+                        Toast.makeText(Login.this, usr,
+                                Toast.LENGTH_SHORT).show();
+
+                        if(usr.equals("1")){
+                            i = new Intent(Login.this, HomeTrabajador.class);
+                        }
+                        else {
+                            i = new Intent(Login.this, ListaOficios.class);
+                        }
+
+                        startActivity(i);
+                    } else {
+                        Log.d("d", "No such document");
+                    }
+                } else {
+                    Log.d("d", "get failed with ", task.getException());
+                }
+            }
+        });
+
+
+
+
+
+
     }
 
     public void registroView(View view) {
