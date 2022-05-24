@@ -27,6 +27,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,6 +57,9 @@ public class InfoTrabajador extends AppCompatActivity {
     String max;
     String noTelefono;
     String oficio;
+
+    int cont;
+    double cal;
 
 
 
@@ -128,9 +134,14 @@ public class InfoTrabajador extends AppCompatActivity {
 
 
         calificiacionInfo.setText(String.valueOf(getIntent().getDoubleExtra("calificacion", 0)));
-        Glide.with(this).load(getIntent().getIntExtra
-                ("fotoResource", 0)).into(fotoInfo);
-
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        StorageReference fotoPerfilRef = storageReference.child(getIntent().getStringExtra("trabajador") + ".jpg");
+        fotoPerfilRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(fotoInfo);
+            }
+        });
 
 
 
@@ -213,6 +224,13 @@ public class InfoTrabajador extends AppCompatActivity {
         ///// PRUEBAAAa
 
 //        calificarTrabajador();
+
+
+        ruta = "users/" + trabID + "/calificaciones";
+        calificiacionInfo.setText(String.valueOf(cal));
+        queryCalificacionUsr();
+
+
     }
 
 
@@ -226,12 +244,16 @@ public class InfoTrabajador extends AppCompatActivity {
 
                     for (QueryDocumentSnapshot document: task.getResult()){
 
+
+
                         Opinion o = new Opinion(document.getString("usuario"),
-                                String.valueOf(document.getDouble("calificacion")).substring(0),
+                                String.valueOf(document.getDouble("calificacion")).substring(0, 1),
                                 document.getString("opinion"));
                         mOpinionData.add(o);
 
-                        t(o.getUsuario() + " " + o.getCalificacion() + " " + o.getComentario());
+                        cal += document.getDouble("calificacion");
+
+//                        t(o.getUsuario() + " " + o.getCalificacion() + " " + o.getComentario());
 
 
                     }
@@ -242,6 +264,67 @@ public class InfoTrabajador extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    double queryCalificacionUsr(){
+
+
+
+        db.collection(ruta).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            int cont = 0;
+                            double cal = 0;
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                    cal += document.getDouble("calificacion");
+                                    cont++;
+                                Toast.makeText(InfoTrabajador.this,
+                                        "usuario: " + document.getString("usuario")
+                                        + " Cal: " + document.getDouble("calificacion"), Toast.LENGTH_SHORT).show();
+                            }
+
+
+                            cal = cal / cont;
+
+                            Double calD = cal;
+
+                            if (calD.isNaN()){
+                                calificiacionInfo.setText("S/C");
+                            }
+                            else{
+                                calificiacionInfo.setText(String.valueOf(cal));
+                            }
+
+                        } else {
+
+                            Toast.makeText(InfoTrabajador.this, "Fallo en calif lol", Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+                    }
+
+
+
+
+                });
+
+        Toast.makeText(InfoTrabajador.this,
+                " Cal: " + cal, Toast.LENGTH_SHORT).show();
+
+        System.out.println(cal);
+        System.out.println(cont);
+
+//        if (cont[0] == 0){
+//            return 0;
+//        }
+//
+//        return cal[0] / cont[0];
+
+        return cal/cont;
+
+
     }
 
 
@@ -262,7 +345,7 @@ public class InfoTrabajador extends AppCompatActivity {
                     + califica + " estrellas", Toast.LENGTH_SHORT).show();
         }
 
-        queryOpiniones();
+
 
     }
 
@@ -294,7 +377,7 @@ public class InfoTrabajador extends AppCompatActivity {
                 });
 
         ocultarElementosOpinion();
-        queryOpiniones();
+
     }
 
     public void enviaOpinion(View v){
@@ -325,7 +408,6 @@ public class InfoTrabajador extends AppCompatActivity {
         });
 
 
-        queryOpiniones();
 
 
     }

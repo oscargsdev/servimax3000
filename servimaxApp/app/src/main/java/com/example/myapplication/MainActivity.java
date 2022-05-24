@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,9 +17,11 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_main);
 
         nombres = getResources().getStringArray(R.array.nombresRegistro);
         apellidos = getResources().getStringArray(R.array.apesRegistro);
@@ -56,19 +59,37 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null){
-            Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
         }
         else{
             Toast.makeText(this, currentUser.getEmail().toString(), Toast.LENGTH_SHORT).show();
+            db.collection("users").document(currentUser.getEmail())
+                    .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    DocumentSnapshot doc = task.getResult();
+
+                    String tipo = doc.getString("tipoUsr");
+                    if (tipo.equals("1")){
+                      startActivity(new Intent(MainActivity.this, HomeTrabajador.class));
+                    }
+                    else{
+                        startActivity(new Intent(MainActivity.this, ListaOficios.class));
+                    }
+
+
+                }
+            });
+
         }
 
 
-        //llenadoDeBD();
+//        llenadoDeBD();
 
 
-        // CAMBIAR PARA LA SS
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
+
     }
 
     @Override
@@ -112,7 +133,8 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < nombres.length; i++){
 
-            String email = nombres[i] + "@hotmail.com";
+            String email = nombres[i].substring(0, 1).toLowerCase(Locale.ROOT)
+                    + nombres[i].substring(1)  + "@hotmail.com";
             int minR = (int)(Math.random()*(1000-200+1)+200);
             int maxR = (int)(Math.random()*(1000-1500+1)+1500);
 

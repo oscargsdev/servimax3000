@@ -12,10 +12,9 @@
         android:id="@+id/nombreHomeTrab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hola, Juan"
         android:fontFamily="sans-serif-thin"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-    />
+        android:text="Hola, buen dia"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
     <Space
         android:layout_width="wrap_content"

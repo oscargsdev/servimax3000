@@ -17,6 +17,7 @@ public class OpinionAdapter extends RecyclerView.Adapter<OpinionAdapter.ViewHold
     private ArrayList<Opinion> mOpinionData;
     private Context mContext;
 
+
     // Constructor que pasa datos y contexto
     OpinionAdapter(Context context, ArrayList<Opinion> opinionData){
         this.mContext = context;

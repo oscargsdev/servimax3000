@@ -9,10 +9,12 @@
     tools:context=".Perfil">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/t1" />
+        android:id="@+id/fotoPerfil"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:baselineAlignBottom="false"
+        app:srcCompat="@drawable/ppfblank" />
 
     <Space
         android:layout_width="match_parent"
@@ -53,19 +55,34 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <ImageView
+        android:id="@+id/estrellaPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/star_big_on" />
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
     <Button
-        android:id="@+id/btnCerrarSesion"
+        android:id="@+id/btnFotoPerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cerrar sesión" />
+        android:onClick="cambiarFoto"
+        android:text="Cambiar foto de perfil" />
 
     <Button
         android:id="@+id/btnRestablecerContra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="restablecerContraPerfil"
         android:text="@string/restablecer_boton" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="cerrarSesionPerfil"
+        android:text="Cerrar sesión" />
 </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
@@ -72,6 +73,12 @@ public class ListaOficios extends AppCompatActivity {
             cerrarSesion();
             return true;
         }
+        if(id == R.id.perfil){
+            Intent i = new Intent(ListaOficios.this, Perfil.class);
+            i.putExtra("usr", mAuth.getCurrentUser());
+
+            startActivity(i);
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -79,6 +86,7 @@ public class ListaOficios extends AppCompatActivity {
      public void cerrarSesion(){
 //        checkUser();
         mAuth.signOut();
+        startActivity(new Intent(ListaOficios.this, Login.class));
 //        checkUser();
     }
 

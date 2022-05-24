@@ -31,7 +31,11 @@ public class RestablecerContra extends AppCompatActivity {
         btnReset = (Button) findViewById(R.id.btn_reset);
         textRegresar = (TextView) findViewById(R.id.textRegresar);
 
+
+
         auth = FirebaseAuth.getInstance();
+
+        correo.setText(auth.getCurrentUser().getEmail().toString());
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,6 +4,8 @@ package com.example.myapplication;
 * Modelo para las vistas de trabajador
 * */
 
+import android.net.Uri;
+
 public class Trabajador {
 
     private String nombre;
@@ -13,18 +15,18 @@ public class Trabajador {
     private String precioMaximo;
     private String noTelefono;
     private String email;
-    private int fotoResource;
+    private Uri fotoResource;
     private double calificacion;
 
     //Constructor para la vista en la lista de trabajadores;
-    Trabajador(String nombre, String apellido, double calificacion, int fotoResource){
+    Trabajador(String nombre, String apellido, double calificacion, Uri fotoResource){
         this.nombre = nombre;
         this.apellido = apellido;
         this.calificacion = calificacion;
         this.fotoResource = fotoResource;
     }
 
-    Trabajador(String nombre, String apellido, double calificacion, int fotoResource, String email){
+    Trabajador(String nombre, String apellido, double calificacion, Uri fotoResource, String email){
         this.nombre = nombre;
         this.apellido = apellido;
         this.calificacion = calificacion;
@@ -33,7 +35,7 @@ public class Trabajador {
     }
 
 
-    Trabajador(String nombre, String apellido,  String noTelefono, String oficio, String precioMinimo, String precioMaximo, int fotoResource,  String email){
+    Trabajador(String nombre, String apellido,  String noTelefono, String oficio, Double calificacion,String precioMinimo, String precioMaximo, Uri fotoResource,  String email){
         this.nombre = nombre;
         this.apellido = apellido;
         this.calificacion = calificacion;
@@ -43,6 +45,7 @@ public class Trabajador {
         this.precioMaximo = precioMaximo;
         this.fotoResource = fotoResource;
         this.email = email;
+        this.calificacion = calificacion;
     }
 
     // Getters
@@ -54,8 +57,12 @@ public class Trabajador {
         return  calificacion;
     }
 
-    public int getFotoResource(){
+    public Uri getFotoResource(){
         return fotoResource;
+    }
+
+    public void setFotoResource(Uri uri){
+        this.fotoResource = uri;
     }
 
     public String getEmail(){

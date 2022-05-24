@@ -120,7 +120,9 @@ public class Login extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
 
                         if(usr.equals("1")){
+
                             i = new Intent(Login.this, HomeTrabajador.class);
+                            i.putExtra("trabajador", document.getId().toString());
                         }
                         else {
                             i = new Intent(Login.this, ListaOficios.class);

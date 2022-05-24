@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -51,22 +52,24 @@ public class TrabajadorAdapter extends RecyclerView.Adapter<TrabajadorAdapter.Vi
         // Views de la tarjeta
         private ImageView mFotoTrabajador;
         private TextView mNombreTrabajador;
-        private TextView mCalificacion;
+        private TextView mRango;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
 
             mFotoTrabajador = itemView.findViewById(R.id.fotoTrabajador);
             mNombreTrabajador = itemView.findViewById(R.id.nombreTrabajador);
-            mCalificacion = itemView.findViewById(R.id.calificacion);
+            mRango = itemView.findViewById(R.id.precioTarjeta);
 
             itemView.setOnClickListener(this);
         }
 
         void bindTo(Trabajador currentTrabajador){
             mNombreTrabajador.setText(currentTrabajador.getNombre());
-            mCalificacion.setText(String.valueOf(currentTrabajador.getCalificacion()));
-            Glide.with(mContext).load(currentTrabajador.getFotoResource()).into(mFotoTrabajador);
+            mRango.setText(
+                    "$" + String.valueOf(currentTrabajador.getMin()) +
+                    " - " + String.valueOf(currentTrabajador.getMax()) + "/hr");
+            Picasso.get().load(currentTrabajador.getFotoResource()).into(mFotoTrabajador);
         }
 
         @Override
