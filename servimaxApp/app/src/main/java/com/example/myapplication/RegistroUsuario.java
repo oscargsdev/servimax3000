@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,7 @@ public class RegistroUsuario extends AppCompatActivity {
 
 
         // Pa despistar
-        Toast.makeText(RegistroUsuario.this, "Ingrese un no. de telefono valido", Toast.LENGTH_LONG).show();
+//        Toast.makeText(RegistroUsuario.this, "Ingrese un no. de telefono valido", Toast.LENGTH_LONG).show();
     }
 
     public void completarRegUsr(View view) {
@@ -75,6 +76,7 @@ public class RegistroUsuario extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void unused) {
                     Toast.makeText(RegistroUsuario.this, "Registro completo :)", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegistroUsuario.this, ListaOficios.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

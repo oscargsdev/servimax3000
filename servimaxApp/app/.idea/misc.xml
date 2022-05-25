@@ -11,7 +11,7 @@
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_perfil.xml" value="0.5" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro.xml" value="0.25" />
-        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_trabajador.xml" value="0.22447916666666667" />
+        <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_trabajador.xml" value="0.22" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_registro_usuario.xml" value="0.25" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/activity_restablecer_contra.xml" value="0.21557971014492755" />
         <entry key="..\:/ProyectosAndroid/servimax3000/servimaxApp/app/src/main/res/layout/tarjeta_comentario.xml" value="0.33" />
@@ -26,5 +26,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

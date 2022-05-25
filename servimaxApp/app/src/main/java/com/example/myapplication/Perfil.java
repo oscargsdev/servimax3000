@@ -107,10 +107,10 @@ public class Perfil extends AppCompatActivity {
                         cont++;
 
                     }
+                    calificacion.setText(String.valueOf(cal / cont));
 
+//                    cal = cal / cont;
 
-                    cal = cal / cont;
-                    calificacion.setText(String.valueOf(cal));
                 } else {
 
 

@@ -54,7 +54,7 @@ public class Registro extends AppCompatActivity {
         rbUsr = findViewById(R.id.rbUsuario);
         rbTrab = findViewById(R.id.rbTrab);
 
-        Toast.makeText(this, "Ingrese una contraseña valida", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Ingrese una contraseña valida", Toast.LENGTH_SHORT).show();
     }
 
     private void createAccount(String email, String password){

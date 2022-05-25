@@ -49,11 +49,11 @@ public class Login extends AppCompatActivity {
 //        FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
 
-
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null){
-            Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
-        }
+//
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser == null){
+//            Toast.makeText(this, "No usuario", Toast.LENGTH_SHORT).show();
+//        }
 
         emailET = findViewById(R.id.email_login_text);
         passET = findViewById(R.id.password_login_text);
@@ -99,8 +99,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user){
-        Toast.makeText(Login.this, user.getEmail().toString(),
-                Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Login.this, user.getEmail().toString(),
+//                Toast.LENGTH_SHORT).show();
 
 
 
@@ -116,8 +116,8 @@ public class Login extends AppCompatActivity {
                         String usr = document.getString("tipoUsr");
                         Intent i;
 
-                        Toast.makeText(Login.this, usr,
-                                Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(Login.this, usr,
+//                                Toast.LENGTH_SHORT).show();
 
                         if(usr.equals("1")){
 

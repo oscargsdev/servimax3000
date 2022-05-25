@@ -279,9 +279,9 @@ public class InfoTrabajador extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                     cal += document.getDouble("calificacion");
                                     cont++;
-                                Toast.makeText(InfoTrabajador.this,
-                                        "usuario: " + document.getString("usuario")
-                                        + " Cal: " + document.getDouble("calificacion"), Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(InfoTrabajador.this,
+//                                        "usuario: " + document.getString("usuario")
+//                                        + " Cal: " + document.getDouble("calificacion"), Toast.LENGTH_SHORT).show();
                             }
 
 
@@ -298,7 +298,7 @@ public class InfoTrabajador extends AppCompatActivity {
 
                         } else {
 
-                            Toast.makeText(InfoTrabajador.this, "Fallo en calif lol", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(InfoTrabajador.this, "Fallo en calif", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -310,8 +310,8 @@ public class InfoTrabajador extends AppCompatActivity {
 
                 });
 
-        Toast.makeText(InfoTrabajador.this,
-                " Cal: " + cal, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(InfoTrabajador.this,
+//                " Cal: " + cal, Toast.LENGTH_SHORT).show();
 
         System.out.println(cal);
         System.out.println(cont);

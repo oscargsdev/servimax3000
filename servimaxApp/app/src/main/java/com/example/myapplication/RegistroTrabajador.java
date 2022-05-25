@@ -3,9 +3,13 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -15,9 +19,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
-public class RegistroTrabajador extends AppCompatActivity {
+public class RegistroTrabajador extends AppCompatActivity  {
 
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
@@ -32,6 +37,9 @@ public class RegistroTrabajador extends AppCompatActivity {
     EditText minTra;
     EditText maxTra;
 
+    Spinner spinnerOficio;
+    String oficioM;
+
     Validacion v;
 
     @Override
@@ -42,13 +50,34 @@ public class RegistroTrabajador extends AppCompatActivity {
         nombreTra = findViewById(R.id.nombre_trab_text);
         apellidosTra = findViewById(R.id.apellido_trab_text);
         telefonoTra = findViewById(R.id.telefono_trab_text);
-        oficioTra = findViewById(R.id.oficio_trab_text);
+//        oficioTra = findViewById(R.id.oficio_trab_text);
         minTra = findViewById(R.id.precio_min_text);
         maxTra = findViewById(R.id.precio_max_text);
 
+        spinnerOficio = (Spinner) findViewById(R.id.spinnerOficio);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.dummy_oficios, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinnerOficio.setAdapter(adapter);
+
+
+
+
+//        spinnerOficio.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                oficioM = adapterView.getItemAtPosition(i).toString();
+//                Toast.makeText(RegistroTrabajador.this, oficioM, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
         v = new Validacion();
 
-        Toast.makeText(RegistroTrabajador.this, "Ingrese un oficio valido", Toast.LENGTH_SHORT).show();
+
     }
 
 
@@ -57,7 +86,7 @@ public class RegistroTrabajador extends AppCompatActivity {
         String nombre = nombreTra.getText().toString();
         String apellido = apellidosTra.getText().toString();
         String telefono = telefonoTra.getText().toString();
-        String oficio = oficioTra.getText().toString();
+        String oficio = spinnerOficio.getSelectedItem().toString().toLowerCase(Locale.ROOT);
         String minimo = minTra.getText().toString();
         String maximo = maxTra.getText().toString();
 
@@ -86,6 +115,7 @@ public class RegistroTrabajador extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void unused) {
                     Toast.makeText(RegistroTrabajador.this, "Registro completo :)", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegistroTrabajador.this, HomeTrabajador.class));
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -120,4 +150,6 @@ public class RegistroTrabajador extends AppCompatActivity {
 
 
     }
+
+
 }

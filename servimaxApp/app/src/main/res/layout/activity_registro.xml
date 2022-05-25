@@ -33,8 +33,7 @@
             android:ems="10"
             android:hint="@string/email_label"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
-            android:text="((@pa5os.df" />
+            android:minHeight="48dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -48,8 +47,7 @@
             android:ems="10"
             android:hint="@string/contrasena_label"
             android:inputType="textPassword"
-            android:minHeight="48dp"
-            android:text="ajsldfsladfhka" />
+            android:minHeight="48dp" />
 
         <Space
             android:layout_width="match_parent"

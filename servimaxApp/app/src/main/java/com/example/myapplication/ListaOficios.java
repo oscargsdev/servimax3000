@@ -90,14 +90,14 @@ public class ListaOficios extends AppCompatActivity {
 //        checkUser();
     }
 
-     void checkUser(){
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null){
-            Toast.makeText(getApplicationContext(), "No usuario", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(getApplicationContext(), currentUser.getEmail().toString(), Toast.LENGTH_SHORT).show();
-        }
-    }
+//     void checkUser(){
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser == null){
+//            Toast.makeText(getApplicationContext(), "No usuario", Toast.LENGTH_SHORT).show();
+//        }
+//        else{
+//            Toast.makeText(getApplicationContext(), currentUser.getEmail().toString(), Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 }

@@ -38,8 +38,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nombre"
-                android:inputType="textPersonName"
-                android:text="Oscar" />
+                android:inputType="textPersonName" />
 
             <Space
                 android:layout_width="match_parent"
@@ -51,21 +50,22 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Apellidos"
-                android:inputType="textPersonName"
-                android:text="Garcia" />
+                android:inputType="textPersonName" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/space_h" />
 
-            <EditText
-                android:id="@+id/oficio_trab_text"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Oficio"
-                android:inputType="textPersonName"
-                android:text="font4nero" />
+                android:text="Oficio" />
+
+            <Spinner
+                android:id="@+id/spinnerOficio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <Space
                 android:layout_width="match_parent"
@@ -81,8 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio mínimo"
-                    android:inputType="number"
-                    android:text="200" />
+                    android:inputType="number" />
 
                 <Space
                     android:layout_width="0dp"
@@ -94,8 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio máximo"
-                    android:inputType="number"
-                    android:text="2000" />
+                    android:inputType="number" />
             </LinearLayout>
 
             <Space
@@ -108,8 +106,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="No. de teléfono"
-                android:inputType="phone"
-                android:text="0000000000000000000" />
+                android:inputType="phone" />
 
             <Space
                 android:layout_width="match_parent"
