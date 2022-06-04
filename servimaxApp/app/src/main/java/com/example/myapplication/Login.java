@@ -2,8 +2,15 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +51,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         v = new Validacion();
+
+        createNotificationChannel();
 
         // Initialize Firebase Auth
 //        FirebaseApp.initializeApp(this);
@@ -128,6 +137,7 @@ public class Login extends AppCompatActivity {
                             i = new Intent(Login.this, ListaOficios.class);
                         }
 
+                        muestraNotifiacion("Servimax3000", "Bienvenido de vuelta");
                         startActivity(i);
                     } else {
                         Log.d("d", "No such document");
@@ -162,4 +172,44 @@ public class Login extends AppCompatActivity {
     public void cerrarSesion(){
         mAuth.signOut();
     }
+
+
+
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String CHANNEL_ID="Servimax3000";
+            CharSequence name = "Mensaje de Servimax3000";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setShowBadge(true);
+
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    public void muestraNotifiacion(String cabecera, String cuerpo){
+        int icon = R.drawable.servimax56;
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = new NotificationCompat.Builder
+                (getApplicationContext(),"Servimax3000")
+                .setAutoCancel(true)
+                .setContentTitle(cabecera)
+                .setContentText(cuerpo)
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setSmallIcon(icon)
+                .setLargeIcon(BitmapFactory.decodeResource
+                        (getResources(), R.drawable.servimax56))
+                .setTicker(cuerpo)
+                .setAutoCancel(false)
+                .build();
+        manager.notify(1,notification);
+    }
+
 }

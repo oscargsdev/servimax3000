@@ -2,11 +2,18 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -102,6 +109,9 @@ public class InfoTrabajador extends AppCompatActivity {
         opinionBtn = findViewById(R.id.btnOpinion);
         space1 = findViewById(R.id.space1);
         space2 = findViewById(R.id.space2);
+
+
+        createNotificationChannel();
 
 
 
@@ -399,6 +409,8 @@ public class InfoTrabajador extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 Toast.makeText(InfoTrabajador.this, "Calififcacion enviada", Toast.LENGTH_SHORT).show();
+                muestraNotifiacion("Opinion enviada", "Su opinion ha diso enviada. Usted puede modificar " +
+                        "esta opinion, al igual que la calificación asignada al trabajador.");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -461,5 +473,43 @@ public class InfoTrabajador extends AppCompatActivity {
         space1.setVisibility(View.VISIBLE);
         space2.setVisibility(View.VISIBLE);
 
+    }
+
+
+
+    private void createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String CHANNEL_ID="Servimax3000";
+            CharSequence name = "Mensaje de Servimax3000";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setShowBadge(true);
+
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    public void muestraNotifiacion(String cabecera, String cuerpo){
+        int icon = R.drawable.servimax56;
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = new NotificationCompat.Builder
+                (getApplicationContext(),"Servimax3000")
+                .setAutoCancel(true)
+                .setContentTitle(cabecera)
+                .setContentText(cuerpo)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setSmallIcon(icon)
+                .setLargeIcon(BitmapFactory.decodeResource
+                        (getResources(), R.drawable.servimax56))
+                .setTicker(cuerpo)
+                .setAutoCancel(true)
+                .build();
+        manager.notify(1,notification);
     }
 }
