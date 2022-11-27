@@ -24,7 +24,7 @@
                 android:id="@+id/registro_trab_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/abeezee"
                 android:text="@string/reg_usr_label"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
@@ -38,7 +38,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nombre"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:fontFamily="@font/abeezee"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -50,7 +51,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Apellidos"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:fontFamily="@font/abeezee"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -60,7 +62,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Oficio" />
+                android:text="Oficio"
+                android:fontFamily="@font/abeezee"/>
 
             <Spinner
                 android:id="@+id/spinnerOficio"
@@ -81,7 +84,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio mínimo"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:fontFamily="@font/abeezee"/>
 
                 <Space
                     android:layout_width="0dp"
@@ -93,7 +97,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Precio máximo"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:fontFamily="@font/abeezee"/>
             </LinearLayout>
 
             <Space
@@ -106,7 +111,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="No. de teléfono"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:fontFamily="@font/abeezee"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -117,7 +123,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="completarRegTra"
-                android:text="@string/completar_registro" />
+                android:text="@string/completar_registro"
+                android:fontFamily="@font/abeezee"/>
 
         </LinearLayout>
 

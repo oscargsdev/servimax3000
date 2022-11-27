@@ -17,8 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
+            android:fontFamily="@font/abeezee"
             android:text="@string/login_title_label"
-            android:fontFamily="sans-serif-thin"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
 
         <Space
@@ -33,7 +33,9 @@
             android:ems="10"
             android:hint="@string/email_label"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:fontFamily="@font/abeezee"
+            android:text="test1@gmail.com"/>
 
         <Space
             android:layout_width="match_parent"
@@ -47,7 +49,9 @@
             android:ems="10"
             android:hint="@string/contrasena_label"
             android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:fontFamily="@font/abeezee"
+            android:text="1234567890"/>
 
         <Space
             android:layout_width="match_parent"
@@ -59,6 +63,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorPrimaryVariant"
             android:onClick="login"
+            android:fontFamily="@font/abeezee"
             android:text="@string/ingresar_label" />
 
         <TextView
@@ -66,6 +71,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/restablecer_label"
+            android:fontFamily="@font/abeezee"
+
             android:textSize="15sp" />
 
         <Space
@@ -83,6 +90,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/abeezee"
                 android:text="@string/sin_cuenta_label" />
 
             <Button
@@ -90,6 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="registroView"
+                android:fontFamily="@font/abeezee"
                 android:text="@string/registrarse_label" />
         </LinearLayout>
 

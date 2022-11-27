@@ -24,7 +24,7 @@
         android:id="@+id/nombrePerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/abeezee"
         android:text="@string/juan_perez"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
@@ -37,7 +37,7 @@
         android:id="@+id/emailPerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/abeezee"
         android:text="juan@juanmailcom"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
@@ -50,7 +50,7 @@
         android:id="@+id/calificacionPerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/abeezee"
         android:text="4.5"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
@@ -70,19 +70,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="cambiarFoto"
-        android:text="Cambiar foto de perfil" />
+        android:text="Cambiar foto de perfil"
+        android:fontFamily="@font/abeezee"/>
 
     <Button
         android:id="@+id/btnRestablecerContra"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="restablecerContraPerfil"
-        android:text="@string/restablecer_boton" />
+        android:text="@string/restablecer_boton"
+        android:fontFamily="@font/abeezee"/>
 
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="cerrarSesionPerfil"
-        android:text="Cerrar sesión" />
+        android:text="Cerrar sesión"
+        android:fontFamily="@font/abeezee"/>
 </LinearLayout>

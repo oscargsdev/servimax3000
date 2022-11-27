@@ -12,9 +12,10 @@
         android:id="@+id/nombreHomeTrab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
+
         android:text="Hola, buen dia"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:fontFamily="@font/abeezee"/>
 
     <Space
         android:layout_width="wrap_content"
@@ -25,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tus calificaciones"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/abeezee"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
     <Space
@@ -35,5 +36,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerOpHomeT"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:fontFamily="@font/abeezee"/>
 </LinearLayout>

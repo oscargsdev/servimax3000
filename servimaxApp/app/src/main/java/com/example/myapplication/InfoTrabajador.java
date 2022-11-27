@@ -47,7 +47,7 @@ public class InfoTrabajador extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth usr = FirebaseAuth.getInstance();
 
-
+    private  Context mContext;
 
     private RecyclerView mRecyclerView;
     private ArrayList<Opinion> mOpinionData;
@@ -83,6 +83,8 @@ public class InfoTrabajador extends AppCompatActivity {
     Space space1;
     Space space2;
 
+    Button llamar;
+
 
 
 
@@ -103,13 +105,21 @@ public class InfoTrabajador extends AppCompatActivity {
         calificiacionInfo = findViewById(R.id.calificacionInfo);
         fotoInfo = findViewById(R.id.fotoTrabajadorInfo);
         oficioInfo = findViewById(R.id.oficioInfo);
-        teleInfo = findViewById(R.id.telefonoInfo);
+//        teleInfo = findViewById(R.id.telefonoInfo);
         precioInfo = findViewById(R.id.precioInfo);
         opinionET = findViewById(R.id.etOpinion);
         opinionBtn = findViewById(R.id.btnOpinion);
         space1 = findViewById(R.id.space1);
         space2 = findViewById(R.id.space2);
 
+        llamar = findViewById(R.id.llamarButton);
+
+        llamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                llamarTrabajador();
+            }
+        });
 
         createNotificationChannel();
 
@@ -137,7 +147,7 @@ public class InfoTrabajador extends AppCompatActivity {
         // Set TextViews
         nombreInfo.setText(nombreC);
         oficioInfo.setText(oficio);
-        teleInfo.setText(noTelefono);
+//        teleInfo.setText(noTelefono);
         precioInfo.setText("$" + min + " - $" + max + " /hr");
         oficioInfo.setText(oficio);
 
@@ -360,14 +370,49 @@ public class InfoTrabajador extends AppCompatActivity {
     }
 
 
-    public void llamarTrabajador(View view){
-        String posted_by = noTelefono;
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
+    //Prueba con firebase para update de chat
+    public void llamarTrabajador(){
+//        String posted_by = noTelefono;
+//
+//        String uri = "tel:" + posted_by.trim() ;
+//        Intent intent = new Intent(Intent.ACTION_DIAL);
+//        intent.setData(Uri.parse(uri));
+//        startActivity(intent);
 
-        String uri = "tel:" + posted_by.trim() ;
-        Intent intent = new Intent(Intent.ACTION_DIAL);
-        intent.setData(Uri.parse(uri));
-        startActivity(intent);
+        Intent intentChat = new Intent(InfoTrabajador.this, Chat.class);
+        intentChat.putExtra("trabajador", trabID);
+        intentChat.putExtra("user", usr.getCurrentUser().getEmail()).toString();
+
+        this.startActivity(intentChat);
+
     }
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
+    /////////////
+    //////////////
+    ////////////
 
 
     public void borrarCalificacion(View v){
@@ -505,8 +550,7 @@ public class InfoTrabajador extends AppCompatActivity {
                 .setContentText(cuerpo)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setSmallIcon(icon)
-                .setLargeIcon(BitmapFactory.decodeResource
-                        (getResources(), R.drawable.servimax56))
+
                 .setTicker(cuerpo)
                 .setAutoCancel(true)
                 .build();

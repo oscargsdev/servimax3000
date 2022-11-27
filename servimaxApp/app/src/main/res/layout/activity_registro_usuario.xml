@@ -16,7 +16,7 @@
             android:id="@+id/registro_usr_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-thin"
+            android:fontFamily="@font/abeezee"
             android:text="@string/reg_usr_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
@@ -30,7 +30,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nombre"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:fontFamily="@font/abeezee"/>
 
         <Space
             android:layout_width="match_parent"
@@ -42,7 +43,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Apellidos"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:fontFamily="@font/abeezee"/>
 
         <Space
             android:layout_width="match_parent"
@@ -54,7 +56,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="No. de teléfono"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:fontFamily="@font/abeezee"/>
 
         <Space
             android:layout_width="match_parent"
@@ -65,7 +68,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/completar_registro"
-            android:onClick="completarRegUsr"/>
+            android:onClick="completarRegUsr"
+            android:fontFamily="@font/abeezee"/>
 
     </LinearLayout>
 

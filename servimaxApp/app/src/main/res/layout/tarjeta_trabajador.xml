@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/fotoTrabajador"
 
-            android:fontFamily="sans-serif-thin"
+            android:fontFamily="@font/abeezee"
             android:paddingStart="10dp"
             android:text="@string/juan_perez"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/nombreTrabajador"
             android:layout_toEndOf="@id/fotoTrabajador"
-            android:fontFamily="sans-serif-thin"
+            android:fontFamily="@font/abeezee"
             android:text="$100 - 200 /hr"
             android:paddingStart="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
